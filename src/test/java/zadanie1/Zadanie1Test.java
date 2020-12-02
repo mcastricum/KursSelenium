@@ -21,24 +21,16 @@ public class Zadanie1Test {
         // Zmaksymalizuj okno przeglądarki
 //        driver.manage().window().maximize();
         // Przejdź do Bing
-        driver.get("http://www.bing.com");
+        driver.get("https://pl.wikipedia.org/");
     }
     @Test
     public void testBingSearch() {
-        // Znajdź element wprowadzania tekstu na podstawie jego nazwy
-        WebElement element = driver.findElement(By.name("q"));
-        // Wyczyść teskst zapisany w elemencie
-        element.clear();
-
-        // Wpisz informacje do wyszukania
-        element.sendKeys("Mistrzostwa Świata w piłce noznej 2018");
-
-        // Prześlij formularz
-        element.submit();
+        driver.get("https://pl.wikipedia.org/");
+        String tag = driver.findElement(By.id("main-page-content")).getTagName();
+        System.out.println(tag);
     }
-    @After
-    public void tearDown() throws Exception {
-        // Zamknij przeglądarkę
-        driver.quit();
+//    @After
+//    public void tearDown() throws Exception {
+//        // Zamknij przeglądarkę
+//        driver.quit();
     }
-}
